@@ -1,0 +1,24 @@
+<div *ngIf="isLoading">
+    <p>Loading user details...</p>
+  </div>
+  
+  <div *ngIf="!isLoading && user; else noUser">
+    <div class="container mt-3">
+      <div class="card" style="width: 18rem;">
+        <img [src]="user.avatar" class="card-img-top" alt="User Avatar">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+          <p class="card-text">ID: {{ user.id }}</p>
+          <p class="card-text">First Name: {{ user.first_name }}</p>
+          <p class="card-text">Last Name: {{ user.last_name }}</p>
+          <a routerLink="/" class="btn btn-primary">Back to User List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noUser>
+    <p>User not found.</p>
+  </ng-template>
+  
+  

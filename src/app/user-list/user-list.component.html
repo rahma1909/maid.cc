@@ -1,0 +1,24 @@
+<div class="container mt-3">
+
+    <div class="mb-3">
+      <input class="form-control" type="text" (input)="onSearch($event)" placeholder="Search by ID">
+    </div>
+  
+
+    <div *ngIf="filteredUsers.length; else noResults" class="row">
+      <div class="col-md-4 mb-3" *ngFor="let user of filteredUsers">
+        <div class="card" (click)="viewUser(user.id)" style="cursor: pointer;">
+          <img class="card-img-top" [src]="user.avatar" alt="User Avatar">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+ 
+    <ng-template #noResults>
+      <p class="text-center">No results found</p>
+    </ng-template>
+  </div>
+  
